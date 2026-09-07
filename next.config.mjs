@@ -3,15 +3,17 @@ const nextConfig = {
   reactStrictMode: false,
 
   images: {
+    unoptimized: true,
     domains: [
       "cda-sa.spider.ws",
       "dashboard.cdaaudit.in",
     ],
+    // Next serves optimized images as "attachment" by default, so opening the
+    // /_next/image URL directly saves the file instead of showing it.
+    contentDispositionType: "inline",
   },
 
-  // Locations used to live under /location while the module was being built.
-  // They sit at the root now, so anything still pointing at the old prefix is
-  // sent to the matching page. Bare /location has no page any more.
+
   async redirects() {
     return [
       {
