@@ -92,7 +92,7 @@ const Service = ({ data }) => {
                     >
                       <Image
                         src={item?.media_id?.file_path}
-                        alt=""
+                        alt={item?.media_id?.alt_text || item?.title || `Service ${index + 1}`}
                         width={250}
                         height={250}
                       />

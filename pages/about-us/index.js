@@ -33,6 +33,7 @@ export default function Home({ data, general, process, testimonials }) {
         discription={data?.content?.description_1}
         short_description={data?.content?.short_description_1}
         bnrimg={data?.content?.media_id_1?.file_path}
+        bnrimgalt={data?.content?.media_id_1?.alt_text}
         btntext="Read More"
         ButtonClick={scrollToSection}
       />
@@ -52,6 +53,7 @@ export default function Home({ data, general, process, testimonials }) {
           misstitle_2={data?.content?.title_4}
           missdescription_2={data?.content?.description_4}
           MisImg={data?.content?.media_id_7?.file_path}
+          MisImgAlt={data?.content?.media_id_7?.alt_text}
         />
       </div>
 
@@ -61,6 +63,7 @@ export default function Home({ data, general, process, testimonials }) {
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
     </Base>
   );

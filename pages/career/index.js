@@ -19,7 +19,8 @@ export default function career({ listdata, data, general, process }) {
           title={data?.title}
           discription={data?.content?.description_1}
           short_description={data?.content?.short_description_1}
-          bnrimg={data?.content?.media_id_1?.file_path} />
+          bnrimg={data?.content?.media_id_1?.file_path}
+          bnrimgalt={data?.content?.media_id_1?.alt_text} />
       </div>
 
       <CareerList listdata={listdata} data={data} />
@@ -28,6 +29,7 @@ export default function career({ listdata, data, general, process }) {
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
     </Base>
   );

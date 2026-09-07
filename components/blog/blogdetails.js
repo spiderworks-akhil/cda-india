@@ -78,7 +78,7 @@ const BlogDetailsitems = ({ data }) => {
 
 
 
-        <Image src={data?.featured_image?.file_path} alt='' width={1000} height={350} />
+        <Image src={data?.featured_image?.file_path} alt={data?.featured_image?.alt_text || data?.title || 'Blog post'} width={1000} height={350} />
 
         <div className='pt-[25px]'>
 
@@ -108,7 +108,7 @@ const BlogDetailsitems = ({ data }) => {
 
             {
               data?.published_by?.featured_image?.file_path &&
-              <Image src={data?.published_by?.featured_image?.file_path} alt='' width={1000} height={350} />
+              <Image src={data?.published_by?.featured_image?.file_path} alt={data?.published_by?.featured_image?.alt_text || data?.published_by?.name || 'Author'} width={1000} height={350} />
             }
 
             <div>

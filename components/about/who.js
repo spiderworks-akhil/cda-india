@@ -38,7 +38,7 @@ const Aboutwho = ({ data }) => {
                 <div className="overflow-hidden img-zoom hidden md:block  w-full  mx-auto mb-[25px]">
                   <Image
                     src={obj?.media_id?.file_path}
-                    alt=""
+                    alt={obj?.media_id?.alt_text || obj?.title || `Who we are ${index + 1}`}
                     width={280}
                     height={186}
                     className="w-full"
@@ -53,7 +53,7 @@ const Aboutwho = ({ data }) => {
               <div className="overflow-hidden img-zoom">
                 <Image
                   src={obj?.media_id?.file_path}
-                  alt=""
+                  alt={obj?.media_id?.alt_text || obj?.title || `Who we are ${index + 1}`}
                   width={177}
                   height={265}
                   className={`w-full  ${

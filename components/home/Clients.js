@@ -29,7 +29,7 @@ const Ourclients = ({ data }) => {
                 </div>
                 <Image
                   src={data?.content?.media_id_10?.file_path}
-                  alt=""
+                  alt={data?.content?.media_id_10?.alt_text || "Our exceptional clients"}
                   width={560}
                   height={530}
                 />
@@ -41,8 +41,8 @@ const Ourclients = ({ data }) => {
                     (client, index) => (
                       <div className="clients_list" key={index}>
                         <Image
-                          src={client?.media_id.file_path}
-                          alt=""
+                          src={client?.media_id?.file_path}
+                          alt={client?.media_id?.alt_text || client?.title || `Client logo ${index + 1}`}
                           width={80}
                           height={35}
                         />

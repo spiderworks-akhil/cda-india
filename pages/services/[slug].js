@@ -57,6 +57,7 @@ export default function Home({
         certificatHead={certifications?.content?.title}
         certificatSubHead={certifications?.content?.sub_title}
         certificatLogo={certifications?.content?.media_id_2?.file_path}
+        certificatLogoAlt={certifications?.content?.media_id_2?.alt_text}
         certificatLogoList={
           certifications?.content?.our_certifications_listing_id
         }
@@ -88,6 +89,7 @@ export default function Home({
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
 
 

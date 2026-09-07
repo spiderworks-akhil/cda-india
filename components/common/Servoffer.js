@@ -49,7 +49,7 @@ const SerOffer = ({ IsServiceDetails, shorttitle, title, discription, listdata }
                     <span className='item-index'>{index + 1}</span>
                     <Image
                       src={service?.featured_image?.file_path}
-                      alt=''
+                      alt={service?.featured_image?.alt_text || service?.name || service?.title || `Service ${index + 1}`}
                       width={338} height={222}
                       sizes='338px'
                     />

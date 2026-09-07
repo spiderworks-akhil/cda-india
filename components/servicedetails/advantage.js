@@ -105,7 +105,7 @@ const SerDetAdvantage = ({ data }) => {
 
                     <Image
                       src={data?.static_page_content?.media?.file_path}
-                      alt=""
+                      alt={data?.static_page_content?.media?.alt_text || data?.static_page_content?.title_4 || "CDA advantage"}
                       width={447}
                       height={300}
                     />

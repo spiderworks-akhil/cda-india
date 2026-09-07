@@ -7,7 +7,7 @@ import { Bluecircleicon, CircleArrowicon, CurveLargeArrowicon } from '../common/
 import Noise from '../common/Noise';
 import { HTMLParser } from '@/utils/HTMLParser';
 
-const SerBanner = ({ subtitle, title, discription, bnrimg }) => {
+const SerBanner = ({ subtitle, title, discription, bnrimg, bnrimgalt }) => {
   return (
     <>
       <section className='ser-banner-sec min-h-screen flex items-end'>
@@ -40,7 +40,7 @@ const SerBanner = ({ subtitle, title, discription, bnrimg }) => {
             </motion.div>
 
             <div className='flex flex-col items-end justify-end'>
-              <Image src={bnrimg} alt='' width={633} height={633} />
+              <Image src={bnrimg} alt={bnrimgalt || title || 'Services banner'} width={633} height={633} />
             </div>
           </div>
         </div>

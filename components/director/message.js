@@ -22,7 +22,7 @@ const DMessage = ({ data }) => {
                     <div className='max-w-[466px] w-full flex justify-center'>
                         <div>
                             <Image
-                                src={data?.content?.media_id_2?.file_path || Dir1} alt=''
+                                src={data?.content?.media_id_2?.file_path || Dir1} alt={data?.content?.media_id_2?.alt_text || data?.content?.name || 'Message from the director'}
                                 width={450} height={550} />
                             <h4> {data?.content?.name} </h4>
                             <h5> {data?.content?.designation}</h5>

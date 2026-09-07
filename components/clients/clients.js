@@ -55,7 +55,7 @@ const ClientsList = ({data}) => {
                 {data?.content?.clients_listing_id.map((item, index) =>(
 
                     <div key={index} className='client-logo-list'>
-                        <Image src={item?.media_id?.file_path} alt='' width={180} height={80} />
+                        <Image src={item?.media_id?.file_path} alt={item?.media_id?.alt_text || item?.title || `Client logo ${index + 1}`} width={180} height={80} />
                     </div>
 
 

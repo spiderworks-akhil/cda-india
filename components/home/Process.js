@@ -6,13 +6,13 @@ import Pros3 from "../../public/images/pros3.png";
 import { LongArrowicon } from "../common/svgicon";
 import Link from "next/link";
 
-const Process = ({ prosTitle, procesList, ProsImg }) => {
+const Process = ({ prosTitle, procesList, ProsImg, ProsImgAlt }) => {
   return (
     <section className="home-process">
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-[76px] md:gap-[20px] xl:gap-[76px]">
           <div className="pros_left">
-            <Image src={ProsImg || Pros1} alt="" width={250} height={250} />
+            <Image src={ProsImg || Pros1} alt={ProsImgAlt || prosTitle || "Our process"} width={250} height={250} />
             <p> {prosTitle}</p>
           </div>
 
@@ -22,7 +22,7 @@ const Process = ({ prosTitle, procesList, ProsImg }) => {
                 <div className="pros_list img-zoom">
                   <Image
                     src={items?.media_id?.file_path}
-                    alt=""
+                    alt={items?.media_id?.alt_text || items?.title || `Process step ${index + 1}`}
                     width={272}
                     height={101}
                   />

@@ -37,7 +37,7 @@ const Whycda = ({data}) => {
 
             <div className='mt-[25px] md:mt-[0] max-w-[568px] w-full'> 
                 <div className='sticky top-[100px]'>
-                    <Image src={data?.content?.media_id_2?.file_path} alt='' width={450} height={550}  />
+                    <Image src={data?.content?.media_id_2?.file_path} alt={data?.content?.media_id_2?.alt_text || data?.content?.title_1 || 'Why CDA'} width={450} height={550}  />
                 </div>
                
             </div>

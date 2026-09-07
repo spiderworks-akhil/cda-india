@@ -23,6 +23,7 @@ const CommonSections = ({
         certificatHead={certifications?.content?.title}
         certificatSubHead={certifications?.content?.sub_title}
         certificatLogo={certifications?.content?.media_id_2?.file_path}
+        certificatLogoAlt={certifications?.content?.media_id_2?.alt_text}
         certificatLogoList={certifications?.content?.our_certifications_listing_id}
       />
 

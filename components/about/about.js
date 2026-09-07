@@ -6,56 +6,52 @@ import { BlueBtn, Bluecircleicon, CircleArrowicon, CurveLargeArrowicon, WhiteBtn
 import Noise from '../common/Noise';
 import { HTMLParser } from '@/utils/HTMLParser';
 
-const Aboutabout = ({data}) => {
+const Aboutabout = ({ data }) => {
   return (
-   
-      <section className='ser-det-finance  '>
 
+    <section className='ser-det-finance  '>
 
-
- 
-       
-        <div className='container relative z-[1]'>
-          <div className='grid md:grid-cols-2 gap-[15px]'>
+      <div className='container relative z-[1]'>
+        <div className='grid md:grid-cols-2 gap-[15px]'>
 
           <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            viewport={{ once: true }}
             className='md:flex justify-center items-center'>
-              <div className='max-w-[610px]'>
-               
-                <h4>{data?.content?.title_1} </h4>
+            <div className='max-w-[610px]'>
+
+              <h4>{data?.content?.title_1} </h4>
 
 
-                <div className=' pt-[25] pb-[55px] md:hidden'>
-            <Image src={Abt2} alt='' width={500} height={500} />
-            </div>
-
-            <div className='p'>{HTMLParser(data?.content?.description_1)}</div>
-                
-               
-                
+              <div className=' pt-[25] pb-[55px] md:hidden'>
+                <Image src={Abt2} alt='About CDA' width={500} height={500} />
               </div>
-          
-         
-              
-            </motion.div>
+
+              <div className='p'>{HTMLParser(data?.content?.description_1)}</div>
 
 
-            <div className='hidden md:block '>
-            <Image src={data?.content?.media_id_2?.file_path} alt='' width={500} height={500} className='sticky top-[80px]' />
+
             </div>
 
-         
-           
-           
+
+
+          </motion.div>
+
+
+          <div className='hidden md:block '>
+            <Image src={data?.content?.media_id_2?.file_path} alt={data?.content?.media_id_2?.alt_text || 'About CDA'} width={500} height={500} className='sticky top-[80px]' />
           </div>
+
+
+
+
         </div>
- 
-      </section>
-    
+      </div>
+
+    </section>
+
   );
 };
 

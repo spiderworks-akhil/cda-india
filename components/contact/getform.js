@@ -105,7 +105,7 @@ const ContactForm = ({ data, contact, blog }) => {
         <div className="contact_form_sec">
           <div className="grid md:grid-cols-2 gap-[100px] items-center">
             <div>
-              <Image src={Contact1} alt="" width={600} height={600} />
+              <Image src={Contact1} alt="Get in touch with CDA India" width={600} height={600} />
             </div>
 
             <div>

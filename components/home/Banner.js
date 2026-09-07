@@ -63,7 +63,7 @@ const Banner = ({ data }) => {
 
           <div className="flex items-center justify-center md:justify-between">
             <div className="circle-img relative">
-              <Image src={BannerIcon} alt="" loading="eager" width={74} height={74} />
+              <Image src={BannerIcon} alt="CDA India" loading="eager" width={74} height={74} />
               <svg
                 className="absolute left-[50%] top-[50%] circle-img-arrow"
                 xmlns="http://www.w3.org/2000/svg"

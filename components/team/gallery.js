@@ -75,7 +75,7 @@ const TeamGallery = ({ data }) => {
                 {/* {
                   console.log(obj)
                 } */}
-                <Image src={obj?.media?.file_path} alt='' width={550} height={550} />
+                <Image src={obj?.media?.file_path} alt={obj?.media?.alt_text || `Team gallery image ${index + 1}`} width={550} height={550} />
               </SwiperSlide>
             ))}
 

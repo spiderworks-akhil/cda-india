@@ -188,7 +188,7 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
               <div>
                 <Image
                   src={general?.all_settings?.logo}
-                  alt=''
+                  alt='CDA India logo'
                   width={166}
                   height={84}
                 />
@@ -271,7 +271,7 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                       {' '}
                       <Image
                         src={Foot3}
-                        alt=''
+                        alt='Google Maps'
                         width={22}
                         height={22}
                       /> Maps <RightLgicon />{' '}
@@ -307,7 +307,7 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                     className='inline-flex items-center gap-[6px]'
                   >
                     SpiderWorks
-                    <Image src={Foot1} alt='' width={27} height={31} />
+                    <Image src={Foot1} alt='Location' width={27} height={31} />
                   </Link>
                 </p>
               </div>
@@ -323,7 +323,7 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
             <div className="flex justify-end items-center">
               <p className="flex items-center gap-[10px]">
                 Built for growth{" "}
-                <Image src={Foot1} alt="" width={27} height={31} />
+                <Image src={Foot1} alt="Location" width={27} height={31} />
               </p>
             </div>
           </div> */}

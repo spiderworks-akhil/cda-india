@@ -28,6 +28,7 @@ export default function Home({ general, data, process, packageList }) {
             title={data?.title}
             discription={data?.content?.description_1}
             bnrimg={data?.content?.media_id_1?.file_path}
+            bnrimgalt={data?.content?.media_id_1?.alt_text}
           />
         </div>
 
@@ -53,6 +54,7 @@ export default function Home({ general, data, process, packageList }) {
           prosTitle={process?.content?.title_1}
           procesList={process?.content?.smart_accounting_listing_id}
           ProsImg={process?.content?.media_id_3?.file_path}
+          ProsImgAlt={process?.content?.media_id_3?.alt_text}
         />
       </Base>
     </>

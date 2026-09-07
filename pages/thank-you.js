@@ -25,7 +25,7 @@ function ThankYou({general}) {
 
           <div>
             
- <Image src={Thanks} alt='' width={200} height={300} className='block mx-auto  ' />
+ <Image src={Thanks} alt='Thank you' width={200} height={300} className='block mx-auto  ' />
           </div>
 
           <div className='flex md:flex-col justify-center md:justify-baseline items-center md:items-start'>

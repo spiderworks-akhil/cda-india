@@ -25,7 +25,7 @@ function Page404({general}) {
 
           <div>
             
- <Image src={Thanks} alt='' width={400} height={300} className='block mx-auto  ' />
+ <Image src={Thanks} alt='Page not found' width={400} height={300} className='block mx-auto  ' />
           </div>
 
           <div className='flex md:flex-col justify-center md:justify-baseline items-center md:items-start'>

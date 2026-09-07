@@ -27,6 +27,7 @@ const TeamManagement = ({ data }) => {
             <Teamlist
               manDesig={data?.content?.chairman_designation}
               manImg={data?.content?.media_id_2?.file_path}
+              manImgAlt={data?.content?.media_id_2?.alt_text}
               manName={data?.content?.chairman_name} />
           </div>
 
@@ -34,6 +35,7 @@ const TeamManagement = ({ data }) => {
             <Teamlist
               manDesig={data?.content?.founder_designation}
               manImg={data?.content?.media_id_3?.file_path}
+              manImgAlt={data?.content?.media_id_3?.alt_text}
               manName={data?.content?.founder_name} />
           </div>
 
@@ -41,6 +43,7 @@ const TeamManagement = ({ data }) => {
             <Teamlist
               manDesig={data?.content?.mentor_designation}
               manImg={data?.content?.media_id_4?.file_path}
+              manImgAlt={data?.content?.media_id_4?.alt_text}
               manName={data?.content?.mentor_name} />
           </div>
 

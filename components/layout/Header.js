@@ -43,7 +43,7 @@ const Header = ({ general }) => {
     <header ref={containerRef} className="header">
       <div className="container flex items-center justify-between">
         <Link href={"/"}>
-          <Image src={Logo} alt="" width={101} height={55} />
+          <Image src={Logo} alt="CDA India logo" width={101} height={55} />
         </Link>
 
         <Navbar navmenu={general?.all_menus?.Main_Menu} />

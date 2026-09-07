@@ -21,6 +21,7 @@ export default function Team({ data, general, process }) {
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
     </Base>
   );

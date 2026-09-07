@@ -22,6 +22,7 @@ export default function AuthorDetails({ general, athorDetail }) {
           discription={athorDetail?.author?.designation}
           short_description={athorDetail?.author?.short_description}
           Authimg={athorDetail?.author?.featured_image?.file_path}
+          Authimgalt={athorDetail?.author?.featured_image?.alt_text}
         />
 
       </div>

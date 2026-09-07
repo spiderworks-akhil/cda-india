@@ -14,6 +14,7 @@ const Certificate = ({
   certificatHead,
   certificatSubHead,
   certificatLogo,
+  certificatLogoAlt,
   certificatLogoList,
 }) => {
   const colors = ["#fff", "#111", "#ccc", "#333", "#666"];
@@ -45,7 +46,7 @@ const Certificate = ({
 
         <div className="flex flex-col md:flex-row items-center justify-center mt-[50px]">
           <div className="client-logo flex items-center justify-center">
-            <Image src={certificatLogo} alt="" width={445} height={350} />
+            <Image src={certificatLogo} alt={certificatLogoAlt || certificatSubHead || "Our certifications"} width={445} height={350} />
           </div>
 
           <div className="client-line">
@@ -80,8 +81,8 @@ const Certificate = ({
             {certificatLogoList?.map((item, index) => (
               <div key={index} className="client-logo-list">
                 <Image
-                  src={item?.media_id.file_path}
-                  alt=""
+                  src={item?.media_id?.file_path}
+                  alt={item?.media_id?.alt_text || item?.title || `Certification ${index + 1}`}
                   width={180}
                   height={80}
                 />

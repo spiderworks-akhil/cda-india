@@ -26,6 +26,7 @@ export default function Team({ data, members, general, process }) {
           discription={data?.content?.description_1}
           short_description={data?.content?.short_description_1}
           bnrimg={data?.content?.media_id_1?.file_path}
+          bnrimgalt={data?.content?.media_id_1?.alt_text}
 
         />
       </div>
@@ -43,6 +44,7 @@ export default function Team({ data, members, general, process }) {
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
     </Base>
   );

@@ -29,7 +29,7 @@ const SerDetHead = ({ data }) => {
 
 
       <section className='ser-det-banner  relative mb-[45px]'>
-        <Image src={data?.banner_image?.file_path} alt='' width={1920} height={773} />
+        <Image src={data?.banner_image?.file_path} alt={data?.banner_image?.alt_text || data?.title || 'Service banner'} width={1920} height={773} />
 
         <div className='absolute top-0 left-0 w-full h-full z-[2] flex items-end pb-[60px]'>
           <div className='container relative z-[1]'>

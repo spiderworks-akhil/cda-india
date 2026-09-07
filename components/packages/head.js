@@ -23,7 +23,7 @@ const PackageHead = ({data}) => {
              
             
                         <div className='pros_list'>
-                        <Image src={Pros2} alt='' width={272} height={101}  />
+                        <Image src={Pros2} alt='Our packages' width={272} height={101}  />
                         <div className='flex items-center mt-[34px] gap-[15px]'>
                         <h4> {data?.content?.title_2}</h4> 
                         <a href='#Tax'><LongArrowicon/></a>
@@ -33,7 +33,7 @@ const PackageHead = ({data}) => {
             
             
                         <div className='pros_list'>
-                        <Image src={Pros3} alt=''width={272} height={101}  />
+                        <Image src={Pros3} alt='Our packages' width={272} height={101}  />
                         <div className='flex items-center mt-[34px] gap-[15px]'>
                         <h4>{data?.content?.title_3}</h4> 
                         <a href='#Audit'><LongArrowicon/></a>

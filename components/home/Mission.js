@@ -19,7 +19,8 @@ const Mission = ({
   missdescription_2,
   maintitle,
   shorttitle,
-  MisImg
+  MisImg,
+  MisImgAlt
 }) => {
   const missionRef = useRef();
   const visionRef = useRef();
@@ -98,7 +99,7 @@ const Mission = ({
                 MisImg &&
                 <Image
                   src={MisImg}
-                  alt=""
+                  alt={MisImgAlt || maintitle || "Why CDA"}
                   width={445}
                   height={350}
                   className="w-full max-w-[445px] h-auto object-contain mx-auto"

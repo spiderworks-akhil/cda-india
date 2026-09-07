@@ -75,10 +75,10 @@ const Trust = ({ data }) => {
             </div>
 
             <div className="trust_left max-w-[400px] lg:max-w-[450px] xl:max-w-[530px] w-full flex flex-col items-center justify-between">
-              <Image src={Trust1} alt="" width={188} height={130} />
+              <Image src={Trust1} alt="Trusted partners" width={188} height={130} />
               <Image
                 src={data?.content?.media_id_2?.file_path}
-                alt=""
+                alt={data?.content?.media_id_2?.alt_text || "Trusted partners"}
                 width={600}
                 height={480}
                 className="trust_left_img"

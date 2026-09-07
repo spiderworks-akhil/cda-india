@@ -20,6 +20,7 @@ export default function BlogDetails({ general, blogDetail, process, data }) {
         <CommBanner
           title={blogDetail?.title}
           bnrimg={blogDetail?.banner_image?.file_path || '/images/team.webp'}
+          bnrimgalt={blogDetail?.banner_image?.alt_text}
         />
       </div>
 
@@ -42,6 +43,7 @@ export default function BlogDetails({ general, blogDetail, process, data }) {
                   title={item?.title}
                   time={item?.published_by?.name}
                   imgSrc={item?.featured_image?.file_path}
+                  imgAlt={item?.featured_image?.alt_text}
                   date={item?.published_on}
                   link={item?.slug}
                 />
@@ -62,6 +64,7 @@ export default function BlogDetails({ general, blogDetail, process, data }) {
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
 
     </Base>

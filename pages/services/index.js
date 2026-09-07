@@ -36,6 +36,7 @@ export default function Home({ data, listdata, general, financialSolutions, cert
         subtitle={data?.content?.short_title_1}
         discription={data?.content?.short_description_1}
         bnrimg={data?.content?.media_id_1?.file_path}
+        bnrimgalt={data?.content?.media_id_1?.alt_text}
       />
 
       <SerOffer
@@ -52,6 +53,7 @@ export default function Home({ data, listdata, general, financialSolutions, cert
         btntext={data?.content?.button_text}
 
         whyimg={data?.content?.media_id_3?.file_path}
+        whyimgalt={data?.content?.media_id_3?.alt_text}
         whyimgcap={data?.content?.image_title_3}
         whyimgsubcap={"India"}
         whyimgbtntxt={data?.content?.image_button_text}
@@ -65,7 +67,8 @@ export default function Home({ data, listdata, general, financialSolutions, cert
       <Certificate
         certificatHead={certifications?.content?.title}
         certificatSubHead={certifications?.content.sub_title}
-        certificatLogo={certifications?.content.media_id_2.file_path}
+        certificatLogo={certifications?.content?.media_id_2?.file_path}
+        certificatLogoAlt={certifications?.content?.media_id_2?.alt_text}
         certificatLogoList={certifications?.content?.our_certifications_listing_id}
       />
 
@@ -95,6 +98,7 @@ export default function Home({ data, listdata, general, financialSolutions, cert
         prosTitle={process?.content?.title_1}
         procesList={process?.content?.smart_accounting_listing_id}
         ProsImg={process?.content?.media_id_3?.file_path}
+        ProsImgAlt={process?.content?.media_id_3?.alt_text}
       />
 
     </Base>

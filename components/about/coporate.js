@@ -21,7 +21,7 @@ const AboutCoporate = ({ data }) => {
           <div className="h-full hidden md:block">
             <Image
               src={data?.content?.media_id_5?.file_path}
-              alt=""
+              alt={data?.content?.media_id_5?.alt_text || "Corporate finance solutions"}
               width={500}
               height={500}
               className="h-full object-cover cutom-height"
@@ -39,7 +39,7 @@ const AboutCoporate = ({ data }) => {
               <div className='h4'>{HTMLParser(data?.content?.title_5)}</div>
 
               <div className=" pt-[25] pb-[55px] md:hidden">
-                <Image src={Abt2} alt="" width={500} height={500} />
+                <Image src={Abt2} alt="Corporate finance solutions" width={500} height={500} />
               </div>
 
               <div

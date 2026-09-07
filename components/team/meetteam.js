@@ -37,7 +37,8 @@ const TeamMeat = ({data}) => {
                   <div key={index}>
                     <Teamlist 
                     manName={obj?.title}
-                    manImg={obj?.featured_image.file_path}
+                    manImg={obj?.featured_image?.file_path}
+                    manImgAlt={obj?.featured_image?.alt_text || obj?.title || `Team member ${index + 1}`}
                     manDesig={obj?.designation}
                     />
                   </div>

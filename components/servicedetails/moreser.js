@@ -39,7 +39,7 @@ const SerDetMore = ({ data }) => {
 
             <div className="flex flex-col md:flex-row mt-[30px] gap-[37px]">
               <div className="hidden md:block min-w-[220px] lg:min-w-[300px]">
-                <Image src={Ser1} alt="" width={220} height={280} />
+                <Image src={Ser1} alt="More services" width={220} height={280} />
               </div>
 
               <div className="w-[100%] md:w-[calc(100%-257px)] lg:w-[calc(100%-337px)]">

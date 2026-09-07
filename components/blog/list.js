@@ -40,6 +40,7 @@ const BlogList = ({
                   title={item?.title}
                   time={item?.published_by?.name}
                   imgSrc={item?.featured_image?.file_path}
+                  imgAlt={item?.featured_image?.alt_text}
                   date={item?.published_on}
                   link={item?.slug}
                 />
