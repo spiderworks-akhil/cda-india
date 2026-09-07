@@ -94,7 +94,7 @@ const Testimonials = ({ data }) => {
                       loop
                       muted
                       playsInline
-                      preload="metadata"
+                      preload="none"
                     />
                     <h4>{item?.name}</h4>
                     <p>{item?.designation}</p>

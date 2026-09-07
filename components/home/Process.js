@@ -12,7 +12,7 @@ const Process = ({ prosTitle, procesList, ProsImg }) => {
       <div className="container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-[76px] md:gap-[20px] xl:gap-[76px]">
           <div className="pros_left">
-            <Image src={ProsImg || Pros1} alt="" width={250} height={250} />
+            <Image src={ProsImg || Pros1} alt={prosTitle || "Our process"} width={250} height={250} />
             <p> {prosTitle}</p>
           </div>
 

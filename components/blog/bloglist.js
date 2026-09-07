@@ -16,7 +16,7 @@ const BlogListitems = ({imgSrc, date, time, title, link  }) => {
   
   return (
      <div className='blog_list'>
-      <Link href={`/blog/${link}`}>        <Image src={imgSrc} alt='' width={440} height={266} />
+      <Link href={`/blog/${link}`}>        <Image src={imgSrc} alt={title || ''} width={440} height={266} />
         <div className='p-[15px]'>
             <h5>  {now} </h5>
             <h4> {title} </h4>

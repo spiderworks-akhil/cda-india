@@ -9,9 +9,9 @@ const Teamlist = ({manImg, manName, manDesig,  }) => {
 
   return (
    <div className='teamlist'>
-     <Image src={manImg} alt='' width={450} height={550}  />
+     <Image src={manImg} alt={manName || ''} width={450} height={550}  />
      <div className="teamlist-cap">
-        <h4 className="name"><a href="#"> { manName }</a></h4>
+        <h4 className="name">{ manName }</h4>
         <span className="designation"> {manDesig}</span>                     
     </div>
 

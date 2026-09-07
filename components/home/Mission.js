@@ -98,7 +98,7 @@ const Mission = ({
                 MisImg &&
                 <Image
                   src={MisImg}
-                  alt=""
+                  alt={maintitle || "Our mission and vision"}
                   width={445}
                   height={350}
                   className="w-full max-w-[445px] h-auto object-contain mx-auto"
@@ -107,7 +107,7 @@ const Mission = ({
             </div>
 
             <div className="absolute right-[30px] bottom-[30px] cursor-pointer z-[2] mission-arrow">
-              <Link href={`/why-cda`}>
+              <Link href={`/why-cda`} aria-label="Why choose CDA">
                 <LargeArrowicon />
               </Link>
             </div>

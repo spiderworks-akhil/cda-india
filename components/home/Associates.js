@@ -103,7 +103,7 @@ const Associates = ({ associateTitle, associateSubTitle, satisfiedClientsCount, 
               <MapDot1icon />
               <div className='absolute left-[-36px] md:left-0 top-[100%] bg-white p-[10px] rounded-[15px] associates_list_opt'>
                 {
-                  loc?.media_id?.file_path && <Image src={loc?.media_id?.file_path} alt='' width={910} height={315} />
+                  loc?.media_id?.file_path && <Image src={loc?.media_id?.file_path} alt={loc?.media_id?.alt_text || loc?.title || loc?.name || ''} width={910} height={315} />
                 }
 
                 <div className='h4'>{HTMLParser(loc?.title)}</div>

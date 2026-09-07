@@ -2,12 +2,22 @@ import "@/styles/globals.css";
 import "@/styles/theme.css";
 import "@/styles/fonts.css";
 import Head from "next/head";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { useEffect, useState } from "react";
 
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useUtmTracker } from "@/components/common/utmData";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+
+// Self-hosted, subsetted and preloaded by Next; theme.css reads the family
+// through the --font-jakarta variable set below.
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-jakarta",
+});
 
 function MyApp({ Component, pageProps }) {
   useUtmTracker();
@@ -53,6 +63,9 @@ function MyApp({ Component, pageProps }) {
         }}
       >
         <Head></Head>
+        <style jsx global>{`
+          :root { --font-jakarta: ${jakarta.style.fontFamily}; }
+        `}</style>
         <Component {...pageProps} />
       </GoogleReCaptchaProvider>
     </>

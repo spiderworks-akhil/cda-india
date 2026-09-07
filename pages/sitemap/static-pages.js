@@ -1,91 +1,32 @@
-import { SlugList } from "@/Datas/endpoints/SlugList";
+import { baseUrl, urlEntry, urlset, sendXml } from "@/Datas/sitemap";
 
-//pages/sitemap.xml.js
-const EXTERNAL_DATA_URL = 'https://jsonplaceholder.typicode.com/posts';
+// The static routes that exist in pages/. This list is the source of truth:
+// the CMS "list-urls/static-pages" endpoint returned slugs (/about, /service,
+// /clients, /careers, /free-consultation, /freezones, /location) that have no
+// route here and were 404s in the sitemap.
+//
+// Deliberately absent: /packages (noindex), /thank-you, /career/thank-you
+// (noindex), /consultation/thank-you and anything under /api.
+const STATIC_ROUTES = [
+  "",
+  "about-us",
+  "services",
+  "blog",
+  "our-team",
+  "our-clients",
+  "why-cda",
+  "career",
+  "consultation",
+  "contact-us",
+  "message-from-director",
+];
 
-// using static page instead of dynamic maping
+function SiteMap() {}
 
-
-{/*
-  below <lastmod>
-   <changefreq>daily</changefreq>
-          <priority>1.0</priority> */}
-
-// Pages that ship <meta name="robots" content="noindex"> must stay out of the
-// sitemap - submitting one is reported as an error in Search Console. Keep this
-// in step with the robots meta in the page components.
-const NOINDEX_SLUGS = ['packages'];
-
-const today = new Date();
-const formattedDate = `${today.toISOString().slice(0, 19)}+00:00`
-
-function generateSiteMap(baseUrl, posts) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   ${posts
-    .map((obj) => {
-  
-      return `
-      <url>
-       <loc>${baseUrl}${obj?.slug == 'index' ? '' : '/' + obj?.slug}</loc>
-         <lastmod>${formattedDate}</lastmod>
-     
-     </url>
-   `;
-    })
-    .join('')}
- </urlset>
- `;
+export async function getServerSideProps({ res }) {
+  const base = baseUrl();
+  const entries = STATIC_ROUTES.map((slug) => urlEntry(slug ? `${base}/${slug}` : `${base}/`));
+  return sendXml(res, urlset(entries));
 }
-
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
-
-export async function getServerSideProps({ req, res }) {
-  try {
-    const request = await SlugList.index();
-    const posts = request?.data || [];
-
-    // Ensure no undefined values in the posts array
-    const sanitizedPosts = posts
-      .map(post => ({
-        slug: post?.slug || null
-      }))
-      .filter(post => !NOINDEX_SLUGS.includes(post.slug));
-
-    const protocol = req.headers['x-forwarded-proto'] || 'https';
-    const host = req.headers['host'];
-    const baseUrl = `${protocol}://${host}`;
-
-    const sitemap = generateSiteMap(baseUrl, sanitizedPosts);
-
-    res.setHeader('Content-Type', 'text/xml');
-    res.write(sitemap);
-    res.end();
-
-    return {
-      props: { data: sanitizedPosts },
-    };
-  } catch (error) {
-    console.error('Error generating sitemap:', error);
-
-    // Fallback in case of error
-    res.setHeader('Content-Type', 'text/xml');
-    res.write('');
-    res.end();
-
-    return {
-      props: { data: [] },
-    };
-  }
-}
-
-
 
 export default SiteMap;
-
-
-//  <url>
-//      <loc>${`${EXTERNAL_DATA_URL}/${obj?.url}`}</loc>
-//  </url>

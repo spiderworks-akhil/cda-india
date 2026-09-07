@@ -49,7 +49,7 @@ const SerOffer = ({ IsServiceDetails, shorttitle, title, discription, listdata }
                     <span className='item-index'>{index + 1}</span>
                     <Image
                       src={service?.featured_image?.file_path}
-                      alt=''
+                      alt={service?.featured_image?.alt_text || service?.name || ''}
                       width={338} height={222}
                       sizes='338px'
                     />
@@ -73,7 +73,7 @@ const SerOffer = ({ IsServiceDetails, shorttitle, title, discription, listdata }
               {listdata?.children?.length > 3 && (
                 <>
 
-                  {IsServiceDetails && <div className='flex justify-center pt-[30px]'> <a href='#' className='cursor-pointer'> <LoadBtn loadtext={"Load More"} />  </a> </div>}
+                  {IsServiceDetails && <div className='flex justify-center pt-[30px]'> <button type='button' className='btn-reset cursor-pointer'> <LoadBtn loadtext={"Load More"} />  </button> </div>}
 
                 </>
 

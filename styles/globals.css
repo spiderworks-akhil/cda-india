@@ -33,3 +33,27 @@ body {
 .grecaptcha-badge {
   display: none !important;
 }
+
+/* Entrance animation for hero headings. Pure CSS so the text is present and
+   visible in the server HTML and without JavaScript. */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+.fade-up-anim { animation: fadeUp 0.8s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-up-anim { animation: none; }
+}
+
+/* Actions that used to be <a> without href are real buttons now; strip the
+   user-agent button styling so the existing .btn / .view-btn classes apply. */
+.btn-reset {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: inherit;
+}

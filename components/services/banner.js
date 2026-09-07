@@ -20,11 +20,7 @@ const SerBanner = ({ subtitle, title, discription, bnrimg }) => {
         />
         <div className='container relative z-[1]'>
           <div className='grid md:grid-cols-2 gap-[15px]'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              viewport={{ once: true }}
+            <div className="fade-up-anim"
               className='md:flex justify-center items-center'>
               <div>
                 <h5 className='flex items-center gap-[10px]'>
@@ -37,10 +33,10 @@ const SerBanner = ({ subtitle, title, discription, bnrimg }) => {
 
 
 
-            </motion.div>
+            </div>
 
             <div className='flex flex-col items-end justify-end'>
-              <Image src={bnrimg} alt='' width={633} height={633} />
+              <Image src={bnrimg || Ser1} alt={title || ''} width={633} height={633} priority sizes="(min-width: 768px) 633px, 100vw" />
             </div>
           </div>
         </div>

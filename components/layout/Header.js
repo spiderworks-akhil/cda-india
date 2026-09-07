@@ -43,7 +43,7 @@ const Header = ({ general }) => {
     <header ref={containerRef} className="header">
       <div className="container flex items-center justify-between">
         <Link href={"/"}>
-          <Image src={Logo} alt="" width={101} height={55} />
+          <Image src={Logo} alt="CDA Audit" width={101} height={55} priority />
         </Link>
 
         <Navbar navmenu={general?.all_menus?.Main_Menu} />
@@ -58,9 +58,9 @@ const Header = ({ general }) => {
             <CircleArrow2icon />
           </Link>
 
-          <a className="md:hidden" onClick={handleNavClick}>
+          <button type="button" className="md:hidden btn-reset" aria-label="Open menu" aria-expanded={active} onClick={handleNavClick}>
             <MenuLineicon />
-          </a>
+          </button>
           <Navbar navmenu={general?.all_menus?.Main_Menu} />
         </div>
       </div>

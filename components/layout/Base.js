@@ -29,7 +29,7 @@ const Base = ({
 
             {gtmBody}
             <Header general={general} />
-            {children}
+            <main>{children}</main>
             <Footer
                 general={general}
                 footerContentTitle={footerContentTitle ?? data?.h1_title}

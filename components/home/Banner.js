@@ -7,17 +7,10 @@ import Link from "next/link";
 import { HTMLParser } from "@/utils/HTMLParser";
 
 // Updated GradualSpacing: full line fade-in
+// Rendered as a plain <h1> so the page's main heading is visible in the
+// server HTML (and without JavaScript); the entrance is a CSS animation.
 const GradualSpacing = ({ text }) => {
-  return (
-    <motion.h1
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="text-center"
-    >
-      {text}
-    </motion.h1>
-  );
+  return <h1 className="text-center fade-up-anim">{text}</h1>;
 };
 
 const Banner = ({ data }) => {
@@ -63,7 +56,7 @@ const Banner = ({ data }) => {
 
           <div className="flex items-center justify-center md:justify-between">
             <div className="circle-img relative">
-              <Image src={BannerIcon} alt="" loading="eager" width={74} height={74} />
+              <Image src={BannerIcon} alt="" priority width={74} height={74} />
               <svg
                 className="absolute left-[50%] top-[50%] circle-img-arrow"
                 xmlns="http://www.w3.org/2000/svg"
@@ -91,6 +84,7 @@ const Banner = ({ data }) => {
         loop
         muted
         playsInline
+        preload="metadata"
         style={{ y: translateY }}
       />
     </section>

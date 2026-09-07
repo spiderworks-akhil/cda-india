@@ -31,7 +31,7 @@ const SerDetFinance = ({data}) => {
 
 
                 <div className=' pt-[25] pb-[55px] md:hidden'>
-            <Image src={data?.content?.media_id_2?.file_path} alt='' width={1920} height={773} />
+            <Image src={data?.content?.media_id_2?.file_path} alt={data?.content?.media_id_2?.alt_text || data?.content?.title_2 || ''} width={1920} height={773} />
             </div>
                 
                 <div className='p'>{HTMLParser(data?.content?.description_2)}</div> 
@@ -44,7 +44,7 @@ const SerDetFinance = ({data}) => {
 
 
             <div className='hidden md:block'>
-            <Image src={data?.content?.media_id_2?.file_path} alt='' width={1920} height={773} />
+            <Image src={data?.content?.media_id_2?.file_path} alt={data?.content?.media_id_2?.alt_text || data?.content?.title_2 || ''} width={1920} height={773} />
             </div>
 
            

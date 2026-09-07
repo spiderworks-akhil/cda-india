@@ -61,7 +61,7 @@ const SerWhy = ({ shorttitle, title, Whycdalist, discription, btntext, whyimgtex
 
             <div className=' pt-[50px]'>
               <div className='relative rounded-[74px] overflow-hidden '>
-                <Image src={whyimg} alt='' width={466} height={533} />
+                <Image src={whyimg} alt={whyimgcap || ''} width={466} height={533} />
                 <div className='absolute  left-0 top-0 w-full h-full flex flex-col items-center justify-between p-[40px] md:p-[20px] lg:p-[40px] text-center bg-[#00000015] '>
                   <span> {whyimgcap} </span>
 

@@ -14,16 +14,12 @@ import { HTMLParser } from '@/utils/HTMLParser'
 const IndDetHead = ({ data }) => {
   return (
     <section className='ser-det-banner  relative mb-[45px]'>
-      <Image src={Ser1} alt='' width={1920} height={773} />
+      <Image src={Ser1} alt={data?.content?.title_1 || ''} width={1920} height={773} priority sizes="100vw" />
 
       <div className='absolute top-0 left-0 w-full h-full z-[2] flex items-end pb-[60px]'>
         <div className='container relative z-[1]'>
           <div className='grid md:grid-cols-2 gap-[15px]'>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              viewport={{ once: true }}
+            <div className="fade-up-anim"
               className='md:flex justify-center items-center'
             >
               <div>
@@ -39,7 +35,7 @@ const IndDetHead = ({ data }) => {
                 )}
 
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

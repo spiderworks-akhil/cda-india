@@ -29,16 +29,14 @@ const LocBanner = ({ data }) => {
           alt={data?.banner_image?.alt_text || title || ''}
           width={1920}
           height={773}
+          priority
+          sizes="100vw"
         />
 
         <div className='absolute top-0 left-0 w-full h-full z-[2] flex items-end pb-[60px]'>
           <div className='container relative z-[1]'>
             <div className='grid md:grid-cols-2 gap-[15px]'>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: 'easeOut' }}
-                viewport={{ once: true }}
+              <div className="fade-up-anim"
                 className='md:flex  items-center'
               >
                 <div>
@@ -55,7 +53,7 @@ const LocBanner = ({ data }) => {
                     </a>
                   )}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

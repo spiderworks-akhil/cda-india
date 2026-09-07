@@ -1,2 +1,8 @@
 User-agent: *
-allow: /
+Allow: /
+Disallow: /api/
+Disallow: /thank-you
+Disallow: /career/thank-you
+Disallow: /packages
+
+Sitemap: https://www.cdaaudit.in/sitemap.xml

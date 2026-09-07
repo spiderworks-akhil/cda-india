@@ -69,13 +69,14 @@ const Faq = ({ servfaqs, faqrighttitle, faqrightdiscription, faqrightbtn, headin
                   <h4> {faqrighttitle}</h4>
                   <div className='p'>{HTMLParser(faqrightdiscription)}</div>
 
-                  <a
+                  <button
+                    type="button"
                     onClick={() => setPopupOpen(true)}
-                    className="btn flex items-center justify-between"
+                    className="btn btn-reset flex items-center justify-between"
                   >
                     {" "}
                     {faqrightbtn} <CircleArrow2icon />{" "}
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

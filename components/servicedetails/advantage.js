@@ -105,7 +105,7 @@ const SerDetAdvantage = ({ data }) => {
 
                     <Image
                       src={data?.static_page_content?.media?.file_path}
-                      alt=""
+                      alt={data?.static_page_content?.media?.alt_text || data?.title || ""}
                       width={447}
                       height={300}
                     />

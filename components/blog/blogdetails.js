@@ -78,7 +78,7 @@ const BlogDetailsitems = ({ data }) => {
 
 
 
-        <Image src={data?.featured_image?.file_path} alt='' width={1000} height={350} />
+        <Image src={data?.featured_image?.file_path} alt={data?.featured_image?.alt_text || data?.title || ''} width={1000} height={350} priority sizes="(min-width: 1024px) 1000px, 100vw" />
 
         <div className='pt-[25px]'>
 
@@ -108,7 +108,7 @@ const BlogDetailsitems = ({ data }) => {
 
             {
               data?.published_by?.featured_image?.file_path &&
-              <Image src={data?.published_by?.featured_image?.file_path} alt='' width={1000} height={350} />
+              <Image src={data?.published_by?.featured_image?.file_path} alt={data?.published_by?.name || ''} width={1000} height={350} />
             }
 
             <div>

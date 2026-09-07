@@ -3,19 +3,56 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import { HTMLParser } from '@/utils/HTMLParser';
 
+const SITE_NAME = 'CDA Audit';
+// 1200x630 share image used whenever the CMS has no og_image / banner_image.
+const DEFAULT_OG_IMAGE = '/images/og-default.png';
+// CMS file paths can contain spaces; encode them so the URL is valid in meta tags.
+const abs = (domain, path) => (path ? encodeURI(path.startsWith('http') ? path : `${domain}${path}`) : '');
+
+const titleCase = (slug = '') =>
+    slug.split('-').filter(Boolean).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+// BreadcrumbList built from the path: Home > Services > <page title>.
+function breadcrumbJsonLd(domain, pathname, pageTitle) {
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments.length === 0) return null;
+    const items = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${domain}/` }];
+    segments.forEach((seg, i) => {
+        const isLast = i === segments.length - 1;
+        items.push({
+            '@type': 'ListItem',
+            position: i + 2,
+            name: isLast && pageTitle ? pageTitle : titleCase(seg),
+            item: `${domain}/${segments.slice(0, i + 1).join('/')}`,
+        });
+    });
+    return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
+}
+
 function SEO({ data, settings }) {
-
-
-
     const router = useRouter();
-    // const domain = typeof window !== "undefined" ? window.location.origin : ''
-    const domain = process.env.NEXT_PUBLIC_FRONT_END_DOMAIN
+    const domain = (process.env.NEXT_PUBLIC_FRONT_END_DOMAIN || '').replace(/\/$/, '');
 
-    const canonicalPathname = router?.asPath.split('?')[0];
+    const pathname = (router?.asPath || '/').split('?')[0].split('#')[0];
+    const isErrorPage = router?.pathname === '/404';
+    const isHome = pathname === '/' || pathname === '/index';
+    const canonical = `${domain}${isHome ? '' : pathname}`;
 
-    const extrajs = HTMLParser(typeof data?.extra_js === 'string'
-        ? data?.extra_js
-        : '');
+    const rawTitle = data?.browser_title || data?.title || data?.name || settings?.site_name || SITE_NAME;
+    const title = rawTitle.toLowerCase().includes(SITE_NAME.toLowerCase()) || rawTitle.includes('CDA')
+        ? rawTitle
+        : `${rawTitle} | ${SITE_NAME}`;
+    const description = String(
+        data?.meta_description || data?.short_description || data?.content?.short_description_1 || settings?.footer_content || ''
+    ).replace(/<[^>]*>/g, '').trim().slice(0, 160);
+
+    const ogImage = abs(domain, data?.og_image?.file_path || data?.banner_image?.file_path || DEFAULT_OG_IMAGE);
+    const ogImageAlt = data?.og_image?.alt_text || data?.banner_image?.alt_text || rawTitle;
+    const ogTitle = data?.og_title || title;
+    const ogDescription = data?.og_description || description;
+    const ogType = pathname.startsWith('/blog/') ? 'article' : 'website';
+
+    const extrajs = HTMLParser(typeof data?.extra_js === 'string' ? data?.extra_js : '');
 
     // The CMS holds the tag manager snippet as markup - the <script> wrapper
     // included, the way Google hands it over - so it is parsed rather than
@@ -26,37 +63,46 @@ function SEO({ data, settings }) {
         ? settings?.google_tag_manager_head
         : '');
 
+    const breadcrumb = !isHome && !isErrorPage ? breadcrumbJsonLd(domain, pathname, data?.title || data?.name) : null;
+
     return (
         <Head>
-
             {gtmHead}
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="google-site-verification" content="dghu7IaS1_edNpNrqGVUwJKvGzPld5lFGJG5JD0y_QE" />
-            <link rel="canonical" href={`${domain}${canonicalPathname == '/index' ? '' : canonicalPathname == '/' ? '' : canonicalPathname}`} />
-            <link rel="icon" href={settings?.fav_icon} />
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-
-            {
-                data &&
-                <>
-                    {extrajs}
-                    <title>{data?.browser_title || data?.title || data?.name}</title>
-                    <meta name="keywords" content={data?.meta_keywords} />
-                    <meta name="description" content={data?.meta_description} />
-
-                    {/* Open Graph Meta Tags for Social Sharing */}
-                    <meta property="og:title" content={data?.og_title || data?.browser_title} />
-                    <meta property="og:description" content={data?.og_description || data?.meta_description} />
-                    <meta property="og:image" content={data?.og_image?.file_path || data?.banner_image?.file_path} />
-                    <meta property="og:image:alt" content={data?.og_image?.alt_text || 'Alt Text for Image'} />
-
-                    <meta name="twitter:card" content={'summary_large_image'} />
-                    <meta name="twitter:image:alt" content={data?.og_image?.alt_text || data?.banner_image?.alt_text || 'Alt Text for Image'} />
-                    <meta name="twitter:title" content={data?.og_title ? data?.og_title : data?.browser_title} />
-                    <meta name="twitter:description" content={data?.og_description ? data?.og_description : data?.meta_description} />
-                    <meta name="twitter:image" content={data?.og_image?.file_path || data?.banner_image?.file_path}></meta>
-                </>
-            }
             <meta name="google-site-verification" content="bmPRZB5hkAHp9r73BCtvCuz9MTjs1m8YWseClrkgmM0" />
+
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            {!isErrorPage && <link rel="canonical" href={canonical} />}
+            {isErrorPage && <meta name="robots" content="noindex" />}
+
+            <link rel="icon" href="/favicon.ico" sizes="48x48" />
+            <link rel="icon" href="/favicon-new-2.png" type="image/png" />
+            <link rel="apple-touch-icon" href="/favicon-new-2.png" />
+
+            {/* Open Graph / Twitter for social sharing */}
+            <meta property="og:site_name" content={SITE_NAME} />
+            <meta property="og:type" content={ogType} />
+            <meta property="og:url" content={canonical} />
+            <meta property="og:title" content={ogTitle} />
+            <meta property="og:description" content={ogDescription} />
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:image:alt" content={ogImageAlt} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={ogTitle} />
+            <meta name="twitter:description" content={ogDescription} />
+            <meta name="twitter:image" content={ogImage} />
+            <meta name="twitter:image:alt" content={ogImageAlt} />
+
+            {breadcrumb && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb).replace(/</g, '\\u003c') }}
+                />
+            )}
+
+            {extrajs}
         </Head>
     )
 }

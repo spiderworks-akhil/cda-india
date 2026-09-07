@@ -45,7 +45,7 @@ const Certificate = ({
 
         <div className="flex flex-col md:flex-row items-center justify-center mt-[50px]">
           <div className="client-logo flex items-center justify-center">
-            <Image src={certificatLogo} alt="" width={445} height={350} />
+            <Image src={certificatLogo} alt={certificatHead || "Certifications"} width={445} height={350} />
           </div>
 
           <div className="client-line">
@@ -81,7 +81,7 @@ const Certificate = ({
               <div key={index} className="client-logo-list">
                 <Image
                   src={item?.media_id.file_path}
-                  alt=""
+                  alt={item?.media_id?.alt_text || item?.title || item?.name || "Certification"}
                   width={180}
                   height={80}
                 />

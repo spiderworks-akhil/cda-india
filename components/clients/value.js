@@ -44,7 +44,7 @@ const OurValue = ({data}) => {
               <h4> {data?.content?.short_description}</h4>
               <Link href={data?.content?.btn_link || '#'} className='btn flex items-center justify-between gap-[20px]'> {data?.content?.btn_text} <CircleArrowicon/> </Link>
             </div>
-            <Image src={data?.content?.media_id_10?.file_path} alt='' width={560} height={530}  />
+            <Image src={data?.content?.media_id_10?.file_path} alt={data?.content?.media_id_10?.alt_text || data?.content?.title_10 || ''} width={560} height={530}  />
           </div>
 
           <div className='clients_right w-full'>
@@ -52,7 +52,7 @@ const OurValue = ({data}) => {
 
               {data?.content?.our_exceptional_clients_listing_id.map((client, index) => (
                 <div className='clients_list' key={index}>
-                  <Image src={client?.media_id.file_path} alt='' width={80} height={35} />
+                  <Image src={client?.media_id.file_path} alt={client?.media_id?.alt_text || client?.title || client?.name || 'Client logo'} width={80} height={35} />
                 </div>
               ))}
 

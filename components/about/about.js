@@ -30,7 +30,7 @@ const Aboutabout = ({data}) => {
 
 
                 <div className=' pt-[25] pb-[55px] md:hidden'>
-            <Image src={Abt2} alt='' width={500} height={500} />
+            <Image src={Abt2} alt='About CDA Audit' width={500} height={500} />
             </div>
 
             <div className='p'>{HTMLParser(data?.content?.description_1)}</div>
@@ -45,7 +45,7 @@ const Aboutabout = ({data}) => {
 
 
             <div className='hidden md:block '>
-            <Image src={data?.content?.media_id_2?.file_path} alt='' width={500} height={500} className='sticky top-[80px]' />
+            <Image src={data?.content?.media_id_2?.file_path} alt={data?.content?.media_id_2?.alt_text || data?.content?.title_2 || 'About CDA Audit'} width={500} height={500} className='sticky top-[80px]' />
             </div>
 
          

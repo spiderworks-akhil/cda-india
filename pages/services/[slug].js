@@ -16,6 +16,9 @@ import SerSolution from '@/components/services/Servsolution'
 import { ServicesApi } from '@/Datas/endpoints/services'
 import { GeneralApi } from '@/Datas/endpoints/general'
 import { WidgetApi } from '@/Datas/endpoints/widget'
+import JsonLd from '@/components/layout/JsonLd'
+
+const SITE = (process.env.NEXT_PUBLIC_FRONT_END_DOMAIN || 'https://www.cdaaudit.in').replace(/\/$/, '')
 
 export default function Home({
   data,
@@ -36,6 +39,18 @@ export default function Home({
       data={serviceDetail}
       footerContentTitle={serviceDetail?.bottom_title}
     >
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: serviceDetail?.title || serviceDetail?.name,
+          description: String(serviceDetail?.meta_description || serviceDetail?.short_description || '').replace(/<[^>]*>/g, ''),
+          url: `${SITE}/services/${serviceDetail?.slug || ''}`,
+          serviceType: serviceDetail?.title || serviceDetail?.name,
+          areaServed: { '@type': 'Country', name: 'India' },
+          provider: { '@id': `${SITE}/#organization` },
+        }}
+      />
       <SerDetHead data={serviceDetail} />
       <SerDetFinance data={serviceDetail} />
       <SerDetAdvantage data={serviceDetail} />
