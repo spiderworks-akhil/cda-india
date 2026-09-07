@@ -75,13 +75,14 @@ const Footercontent = ({ footerContentTitle, footerContentDiscription }) => {
         <div>{HTMLParser(isExpanded ? footerContentDiscription : truncatedHTML)}</div>
         {shouldShowToggle && (
           <div>
-            <a
-              className="readmore"
+            <button
+              type="button"
+              className="readmore btn-reset"
+              aria-expanded={isExpanded}
               onClick={() => setIsExpanded(!isExpanded)}
-              style={{ cursor: "pointer" }}
             >
               {isExpanded ? "Read less" : "Read more"}
-            </a>
+            </button>
           </div>
         )}
       </div>

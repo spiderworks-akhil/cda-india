@@ -78,7 +78,7 @@ const BlogDetailsitems = ({ data }) => {
 
 
 
-        <Image src={data?.featured_image?.file_path} alt={data?.featured_image?.alt_text || data?.title || 'Blog post'} width={1000} height={350} />
+        <Image src={data?.featured_image?.file_path} alt={data?.featured_image?.alt_text || data?.title || 'Blog post'} width={1000} height={350} priority sizes="(min-width: 1024px) 1000px, 100vw" />
 
         <div className='pt-[25px]'>
 

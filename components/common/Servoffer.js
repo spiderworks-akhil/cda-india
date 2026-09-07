@@ -73,7 +73,7 @@ const SerOffer = ({ IsServiceDetails, shorttitle, title, discription, listdata }
               {listdata?.children?.length > 3 && (
                 <>
 
-                  {IsServiceDetails && <div className='flex justify-center pt-[30px]'> <a href='#' className='cursor-pointer'> <LoadBtn loadtext={"Load More"} />  </a> </div>}
+                  {IsServiceDetails && <div className='flex justify-center pt-[30px]'> <button type='button' className='btn-reset cursor-pointer'> <LoadBtn loadtext={"Load More"} />  </button> </div>}
 
                 </>
 

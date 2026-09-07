@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
 import Base from "@/components/layout/Base";
 import Banner from "@/components/home/Banner";
 import Trust from "@/components/home/Trust";

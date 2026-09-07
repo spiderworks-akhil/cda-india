@@ -10,7 +10,7 @@ import Link from 'next/link'
 function Page404({general}) {
   return (
 
-     <Base general={general}>
+     <Base general={general} data={{ browser_title: 'Page not found', meta_description: 'The page you are looking for does not exist or has moved. Return to the CDA Audit homepage.' }}>
 
       <div className='h-[120px] bg-[#12283a]'>
 

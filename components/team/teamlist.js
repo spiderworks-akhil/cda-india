@@ -11,7 +11,7 @@ const Teamlist = ({manImg, manImgAlt, manName, manDesig,  }) => {
    <div className='teamlist'>
      <Image src={manImg} alt={manImgAlt || manName || 'Team member'} width={450} height={550}  />
      <div className="teamlist-cap">
-        <h4 className="name"><a href="#"> { manName }</a></h4>
+        <h4 className="name">{ manName }</h4>
         <span className="designation"> {manDesig}</span>                     
     </div>
 

@@ -29,16 +29,12 @@ const CommBanner = ({
   // console.log(data);
   return (
     <section className="ser-det-banner h-full  relative mb-[45px] inner-banner">
-      <Image src={bnrimg || Ser1} alt={bnrimgalt || title || "Banner"} width={1920} height={773} />
+      <Image src={bnrimg || Ser1} alt={bnrimgalt || title || "Banner"} width={1920} height={773} priority sizes="100vw" />
 
       <div className="absolute top-0 left-0 w-full h-full z-[2] flex items-end pb-[60px] com_bnr_cap">
         <div className="container relative z-[1]">
           <div className="">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
+            <div className="fade-up-anim"
               className=""
             >
               <div>
@@ -63,7 +59,7 @@ const CommBanner = ({
                   
                 } */}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

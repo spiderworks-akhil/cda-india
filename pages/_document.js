@@ -1,16 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
+// The Plus Jakarta Sans font is self-hosted through next/font in _app.js, so
+// there is no third-party stylesheet to block rendering here.
 export default function Document() {
   return (
     <Html lang="en">
-      <Head >
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Head />
       <body className="antialiased">
         <Main />
         <NextScript />

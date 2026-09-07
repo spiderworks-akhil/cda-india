@@ -84,18 +84,19 @@ const FooterColumn = ({ title, items }) => {
         {showAll &&
           items?.slice(5)?.map((item, idx) => (
             <li key={idx}>
-              <a className='link'>{item?.title}</a>
+              <Link href={`/${item?.url}`} className='link'>{item?.title}</Link>
             </li>
           ))}
 
         {items?.length > 5 && !showAll && (
           <li>
-            <a
-              className='view-btn flex items-center gap-[20px]'
+            <button
+              type='button'
+              className='view-btn btn-reset flex items-center gap-[20px]'
               onClick={() => setShowAll(true)}
             >
               View All <Arrowlineicon />
-            </a>
+            </button>
           </li>
         )}
       </ul>
@@ -202,6 +203,8 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                     <Link
                       target='_blank'
                       href={general?.all_settings['twitter-link']}
+                      aria-label='X (Twitter)'
+                      rel='noopener'
                       className='inline-flex opacity-70 transition duration-300 ease-out hover:-translate-y-[2px] hover:opacity-100'
                     >
                       <Xicon />{' '}
@@ -212,6 +215,8 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                     <Link
                       target='_blank'
                       href={general?.all_settings['facebook-link']}
+                      aria-label='Facebook'
+                      rel='noopener'
                       className='inline-flex opacity-70 transition duration-300 ease-out hover:-translate-y-[2px] hover:opacity-100'
                     >
                       <Faceicon />{' '}
@@ -222,6 +227,8 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                     <Link
                       target='_blank'
                       href={general?.all_settings['instagram-link']}
+                      aria-label='Instagram'
+                      rel='noopener'
                       className='inline-flex opacity-70 transition duration-300 ease-out hover:-translate-y-[2px] hover:opacity-100'
                     >
                       <Instaicon />{' '}
@@ -232,6 +239,8 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                     <Link
                       target='_blank'
                       href={general?.all_settings['youtube-link']}
+                      aria-label='YouTube'
+                      rel='noopener'
                       className='inline-flex opacity-70 transition duration-300 ease-out hover:-translate-y-[2px] hover:opacity-100'
                     >
                       <Youicon />{' '}
@@ -242,6 +251,8 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                     <Link
                       target='_blank'
                       href={general?.all_settings['linkedin-link']}
+                      aria-label='LinkedIn'
+                      rel='noopener'
                       className='inline-flex opacity-70 transition duration-300 ease-out hover:-translate-y-[2px] hover:opacity-100'
                     >
                       <Linkicon />{' '}
@@ -280,14 +291,15 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                 </div>
 
                 <div className='mt-[50px] md:mt-auto'>
-                  <a
+                  <button
+                    type='button'
                     onClick={() => setPopupOpen(true)}
-                    className='btn flex items-center justify-between gap-[20px]'
+                    className='btn btn-reset flex items-center justify-between gap-[20px]'
                   >
                     {' '}
                     {brochure ? 'Download Brochure' : 'Enquire Now'}{' '}
                     <CircleArrowicon />{' '}
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

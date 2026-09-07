@@ -65,12 +65,13 @@ const Trust = ({ data }) => {
 
                 <div className='p'>{HTMLParser(data?.content?.description_2)}</div>
 
-                <a
+                <button
+                  type="button"
                   onClick={() => setPopupOpen(true)}
-                  className="btn flex items-center gap-[12px]"
-                >
+                  className="btn btn-reset flex items-center gap-[12px]"
+                  >
                   {data?.content?.button_text_2} <CircleArrow2icon />
-                </a>
+                </button>
               </div>
             </div>
 
@@ -93,12 +94,13 @@ const Trust = ({ data }) => {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}>{HTMLParser(data?.content?.title_2)}</motion.div>
                 <div className='p'>{HTMLParser(data?.content?.description_2)}</div>
-                <a
+                <button
+                  type="button"
                   onClick={() => setPopupOpen(true)}
-                  className="btn flex items-center gap-[12px]"
-                >
+                  className="btn btn-reset flex items-center gap-[12px]"
+                  >
                   {data?.content?.button_text_2} <CircleArrow2icon />
-                </a>
+                </button>
               </div>
 
               <div className="grid md:grid-cols-3 gap-[35px]  md:gap-[5px] lg:gap-[35px] mt-[30px] md:mt-[0] ">

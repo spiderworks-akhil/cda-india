@@ -6,11 +6,15 @@ import Image from 'next/image'
 
 import Thanks from '../../public/images/thank-you.png'
 import Link from 'next/link'
+import Head from 'next/head'
 
 function CareerThankYou({ general }) {
   return (
 
-    <Base general={general}>
+    <Base general={general} data={{ browser_title: 'Application received' }}>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" key="robots" />
+      </Head>
 
       <div className='h-[120px] bg-[#12283a]'>
 
