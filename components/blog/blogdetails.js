@@ -108,7 +108,12 @@ const BlogDetailsitems = ({ data }) => {
 
             {
               data?.published_by?.featured_image?.file_path &&
-              <Image src={data?.published_by?.featured_image?.file_path} alt={data?.published_by?.featured_image?.alt_text || data?.published_by?.name || 'Author'} width={1000} height={350} />
+              <Image
+                src={data?.published_by?.featured_image?.file_path}
+                alt={data?.published_by?.featured_image?.alt_text || data?.published_by?.name || 'Author'}
+                width={1000}
+                height={350}
+              />
             }
 
             <div>

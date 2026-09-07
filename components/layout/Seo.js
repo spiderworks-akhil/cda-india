@@ -26,11 +26,17 @@ function SEO({ data, settings }) {
         ? settings?.google_tag_manager_head
         : '');
 
+    const common_scripts = HTMLParser(typeof settings?.other_common_scripts === 'string'
+        ? settings?.other_common_scripts
+        : '');
+
+
     return (
         <Head>
 
             {gtmHead}
-            <meta name="google-site-verification" content="dghu7IaS1_edNpNrqGVUwJKvGzPld5lFGJG5JD0y_QE" />
+            {common_scripts}
+
             <link rel="canonical" href={`${domain}${canonicalPathname == '/index' ? '' : canonicalPathname == '/' ? '' : canonicalPathname}`} />
             <link rel="icon" href={settings?.fav_icon} />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
@@ -56,7 +62,6 @@ function SEO({ data, settings }) {
                     <meta name="twitter:image" content={data?.og_image?.file_path || data?.banner_image?.file_path}></meta>
                 </>
             }
-            <meta name="google-site-verification" content="bmPRZB5hkAHp9r73BCtvCuz9MTjs1m8YWseClrkgmM0" />
         </Head>
     )
 }
