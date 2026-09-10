@@ -44,7 +44,7 @@ function SEO({ data, settings }) {
         : `${rawTitle} | ${SITE_NAME}`;
     const description = String(
         data?.meta_description || data?.short_description || data?.content?.short_description_1 || settings?.footer_content || ''
-    ).replace(/<[^>]*>/g, '').trim().slice(0, 160);
+    );
 
     const ogImage = abs(domain, data?.og_image?.file_path || data?.banner_image?.file_path || DEFAULT_OG_IMAGE);
     const ogImageAlt = data?.og_image?.alt_text || data?.banner_image?.alt_text || rawTitle;
