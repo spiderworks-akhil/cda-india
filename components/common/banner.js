@@ -35,7 +35,6 @@ const CommBanner = ({
         <div className="container relative z-[1]">
           <div className="">
             <div className="fade-up-anim"
-              className=""
             >
               <div>
                 {Authimg &&

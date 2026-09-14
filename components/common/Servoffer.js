@@ -25,7 +25,7 @@ const SerOffer = ({ IsServiceDetails, shorttitle, title, discription, listdata }
               <div>
                 <div className='max-w-[528px]'>
                   <h5>{shorttitle}</h5>
-                  <h2>{title}</h2>
+                  <h3>{title}</h3>
                 </div>
               </div>
 

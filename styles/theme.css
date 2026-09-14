@@ -2503,6 +2503,15 @@ footer {
   margin-bottom: 25px;
 }
 
+.ser-offer-head h3 {
+  color: #101828;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px;
+  /* 133.333% */
+}
+
 .ser-offer-head h2 {
   color: #101828;
   font-size: 36px;
@@ -3908,6 +3917,16 @@ footer {
   padding: 0 0 0;
 }
 
+.Career_List_cntr .accordion_head .title {
+  color: #101828;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  /* 125% */
+}
+
 .Career_List_cntr .accordion_head h4 {
   color: #101828;
   font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
@@ -4378,7 +4397,6 @@ footer {
   font-style: normal;
   font-weight: 600;
   line-height: 22.32px;
-  margin-bottom: 20px;
 }
 
 .career_data .accordion_data ul li {
@@ -5145,6 +5163,11 @@ section#TermsCondition-section {
     /* max-height: 433px; */
   }
 
+  .ser-offer-head h3 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
   .ser-offer-head h2 {
     font-size: 30px;
     line-height: 40px;
@@ -5858,6 +5881,11 @@ section#TermsCondition-section {
     font-size: 14px;
   }
 
+  .ser-offer-head h3 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
   .ser-offer-head h2 {
     font-size: 26px;
     line-height: 36px;
@@ -6184,6 +6212,11 @@ section#TermsCondition-section {
     height: 55px;
     width: 55px;
     gap: 0;
+  }
+
+  .Career_List_cntr .accordion_head .title {
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .Career_List_cntr .accordion_head h4 {

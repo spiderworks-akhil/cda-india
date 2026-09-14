@@ -294,7 +294,7 @@ const Footer = ({ general, footerContentTitle, footerContentDiscription }) => {
                   <button
                     type='button'
                     onClick={() => setPopupOpen(true)}
-                    className='btn btn-reset flex items-center justify-between gap-[20px]'
+                    className='btn btn-reset flex items-center justify-between gap-[20px] cursor-pointer'
                   >
                     {' '}
                     {brochure ? 'Download Brochure' : 'Enquire Now'}{' '}

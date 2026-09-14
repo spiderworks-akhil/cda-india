@@ -13,7 +13,6 @@ const SerWhy = ({ shorttitle, title, Whycdalist, discription, btntext, whyimgtex
 
   return (
 
-
     <>
 
       {
@@ -25,24 +24,18 @@ const SerWhy = ({ shorttitle, title, Whycdalist, discription, btntext, whyimgtex
         />
       }
 
-
-
       <section className='ser-why-sec pt-[100px] pb-[100px] '>
 
         <div className='container  '>
-
-
-
           <div className='flex flex-col md:flex-row items-center justify-between gap-[60px] '>
-
 
             <motion.div initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
               viewport={{ once: true }} className='w-full max-w-[780px]'>
 
-              <h5> {shorttitle}</h5>
-              <h3>  {title}</h3>
+              <h5>{shorttitle}</h5>
+              <h3>{title}</h3>
 
               <div className='p'>{HTMLParser(discription)}</div>
 
@@ -52,9 +45,9 @@ const SerWhy = ({ shorttitle, title, Whycdalist, discription, btntext, whyimgtex
                   <li key={index} className='flex items-center gap-[16px]'><span className='why-cda-list-span'></span>  {item?.title}</li>
                 ))}
 
-
               </ul>
-              <a onClick={() => setPopupOpen(true)} className='btn flex items-center justify-between'>   {btntext} <LargeArrowicon /> </a>
+
+              <a onClick={() => setPopupOpen(true)} className='btn flex items-center justify-between'>{btntext} <LargeArrowicon /> </a>
 
             </motion.div>
 

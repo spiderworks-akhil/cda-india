@@ -56,11 +56,11 @@ const CareerList = ({
                     <div>{HTMLParser(item?.responsibilities)}</div>
                     <div>{HTMLParser(item?.eligibility)}</div>
                     <div>{HTMLParser(item?.skills)}</div>
-                    <div className="flex items-center gap-[15px]">
+                    <div className="mb-2 flex items-center gap-[15px]">
                       <h5>No: of Vacancies:</h5>
                       <div className='h5'>{HTMLParser(item?.vacancies)}</div>
                     </div>
-                    <div className="flex items-center gap-[15px]">
+                    <div className="mb-2 flex items-center gap-[15px]">
                       <h5>Job Locations:</h5>
                       <div className='h5'>{HTMLParser(item?.job_location)}</div>
                     </div>

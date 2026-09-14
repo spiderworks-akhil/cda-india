@@ -25,10 +25,10 @@ export default function Accordion({
         onClick={onToggle}
         className="accordion_head w-full flex justify-between items-center text-left"
       >
-        <h4 className="flex items-center gap-[10px]">
+        <p className="title flex items-center gap-[10px]">
           {" "}
           {showicon && <Editicon />} {title}
-        </h4>
+        </p>
         <span className="acco_nav flex flex-col items-center justify-center cursor-pointer">
           {isOpen ? "-" : "+"}
         </span>

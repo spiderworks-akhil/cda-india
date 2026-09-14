@@ -18,7 +18,8 @@ export default function Contact({ general, process, data }) {
     <Base data={data} general={general}>
 
       <div className="Small_banner h-[100dvh]  ">
-        <CommBanner title={data?.title}
+        <CommBanner
+          title={data?.title}
           discription={data?.content?.description_1}
         />
       </div>
