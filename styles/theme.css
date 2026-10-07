@@ -6413,6 +6413,21 @@ section#TermsCondition-section {
     line-height: 38px;
     letter-spacing: -0.3px;
   }
+
+  .react-tel-input .country-list {
+    z-index: 1;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.35) 1px 2px 10px;
+    background-color: rgb(255, 255, 255);
+    width: 300px !important;
+    max-height: 200px;
+    overflow-y: scroll;
+    outline: none;
+    list-style: none;
+    padding: 0px;
+    margin: 10px 0px 10px -1px;
+    border-radius: 0px 0px 3px 3px;
+  }
 }
 
 /* ---- Career apply popup ------------------------------------------------ */
