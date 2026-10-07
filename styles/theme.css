@@ -3550,7 +3550,7 @@ footer {
 }
 
 .Team-meet .teamlist .teamlist-cap .name {
-  color: #191919;
+  color: #fff;
   font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -5805,6 +5805,42 @@ section#TermsCondition-section {
     border-radius: 0;
     background: transparent;
     backdrop-filter: unset;
+  }
+
+  /* No hover on touch: a dropdown stays shut until its arrow is tapped (see
+     openItem in components/common/Nav.js), and a long one scrolls in place. */
+  .nav2 nav li.nav-list-item .drop_menu {
+    display: none;
+  }
+
+  .nav2 nav li.nav-list-item.is-open > .drop_menu {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* The third level is stacked inside the scrolling panel, so it is simply
+     shown rather than needing a second tap target. */
+  .nav2 nav li.nav-list-item .drop_menu_level {
+    display: block;
+    padding-left: 12px;
+  }
+
+  .nav2 nav li.nav-list-item > a,
+  .nav2 nav li.nav-list-item > span {
+    justify-content: space-between;
+  }
+
+  .nav2 nav .nav-dropdown-toggle {
+    display: inline-flex;
+    padding: 4px 8px;
+    margin: -4px -8px -4px 0;
+    transition: transform 0.2s ease;
+  }
+
+  .nav2 nav li.nav-list-item.is-open .nav-dropdown-toggle {
+    transform: rotate(180deg);
   }
 
   .home-service {

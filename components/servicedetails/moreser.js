@@ -59,7 +59,7 @@ const SerDetMore = ({ data }) => {
                   loop={data?.more_services?.length > 3}
                   breakpoints={{
                     640: {
-                      slidesPerView: 2,
+                      slidesPerView: 1,
                       spaceBetween: 20,
                     },
                     768: {

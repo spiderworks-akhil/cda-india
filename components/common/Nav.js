@@ -11,6 +11,16 @@ let dismissedItem = null;
 
 const Navbar = ({ navmenu }) => {
   const [dismissed, setDismissed] = useState(dismissedItem);
+  // Touch screens have no hover, so in the mobile drawer a dropdown is opened by
+  // tapping its arrow instead. Only the mobile stylesheet reads this.
+  const [openItem, setOpenItem] = useState(null);
+
+  const toggleDropdown = (event, key) => {
+    // The arrow sits inside the item's link, which must not navigate here.
+    event.preventDefault();
+    event.stopPropagation();
+    setOpenItem((current) => (current === key ? null : key));
+  };
 
   // Menu urls come from the CMS and are stored either absolute ("/dubai/x") or
   // relative to their parent ("x" under "services"). Prepending the parent to
@@ -85,15 +95,29 @@ const Navbar = ({ navmenu }) => {
             <>
               {item?.title}
               {item?.children?.length > 0 && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
+                <span
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Toggle ${item?.title} menu`}
+                  aria-expanded={openItem === itemKey}
+                  className="nav-dropdown-toggle"
+                  onClick={(event) => toggleDropdown(event, itemKey)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      toggleDropdown(event, itemKey);
+                    }
+                  }}
                 >
-                  <path d="M12 15L17 10H7L12 15Z" fill="white" />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path d="M12 15L17 10H7L12 15Z" fill="white" />
+                  </svg>
+                </span>
               )}
             </>
           );
@@ -104,7 +128,7 @@ const Navbar = ({ navmenu }) => {
               onMouseEnter={() => restoreDropdown(itemKey)}
               onMouseLeave={() => restoreDropdown(itemKey)}
               className={`relative group nav-list-item ${item?.children?.length > 0 ? "has_child" : ""
-                }`}
+                } ${openItem === itemKey ? "is-open" : ""}`}
             >
               {isPlaceholder(item?.url) ? (
                 <span className="flex items-center gap-1 cursor-default">
