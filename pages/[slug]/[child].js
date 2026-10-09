@@ -68,7 +68,7 @@ export const getStaticProps = async ({ params }) => {
     const locationDetail = LocationPageData?.data?.data
 
     if (!locationDetail) {
-      return { notFound: true }
+      return { notFound: true, revalidate: 10 }
     }
 
     return {
@@ -86,7 +86,7 @@ export const getStaticProps = async ({ params }) => {
     console.log('location service page error', error)
     if (error?.error == 'Not found' || error?.error == 'Page not Found!') {
       return {
-        notFound: true
+        notFound: true, revalidate: 10
       }
     }
     throw error

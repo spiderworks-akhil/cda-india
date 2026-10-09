@@ -74,7 +74,7 @@ export const getStaticProps = async ({ params }) => {
     const companyPage = CompanyPageData?.data?.data;
 
     if (!companyPage) {
-      return { notFound: true };
+      return { notFound: true, revalidate: 10 };
     }
 
     return {
@@ -87,7 +87,7 @@ export const getStaticProps = async ({ params }) => {
   } catch (error) {
     console.log("company page error", error);
     if (error?.error == "Not found" || error?.error == "Page not Found!") {
-      return { notFound: true };
+      return { notFound: true, revalidate: 10 };
     }
     throw error;
   }

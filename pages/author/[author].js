@@ -76,7 +76,7 @@ export const getStaticProps = async ({ params }) => {
 
     if (error?.error == 'Author not found') {
       return {
-        notFound: true
+        notFound: true, revalidate: 10
       }
     }
     throw error

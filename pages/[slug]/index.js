@@ -49,7 +49,7 @@ export const getStaticProps = async ({ params }) => {
     const locationDetail = LocationPageData?.data?.data
 
     if (!locationDetail) {
-      return { notFound: true }
+      return { notFound: true, revalidate: 10 }
     }
 
     // A service answers on this route too, because /<service-slug> is a single
@@ -81,7 +81,7 @@ export const getStaticProps = async ({ params }) => {
     console.log('location city page error', error)
     if (error?.error == 'Not found' || error?.error == 'Page not Found!') {
       return {
-        notFound: true
+        notFound: true, revalidate: 10
       }
     }
     throw error

@@ -131,7 +131,7 @@ export const getStaticPaths = async () => {
 
 // Fetch data for each blog page
 export const getStaticProps = async ({ params }) => {
-  console.log(params)
+  // console.log(params)
   try {
     const ServicePageData = await ServicesApi.serviceDetail({
       slug: params.slug
@@ -163,7 +163,7 @@ export const getStaticProps = async ({ params }) => {
     console.log('servic detail page error', error)
     if (error?.error == 'Not found') {
       return {
-        notFound: true
+        notFound: true, revalidate: 10
       }
     }
     throw error

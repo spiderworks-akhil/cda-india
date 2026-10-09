@@ -107,7 +107,7 @@ export const getStaticProps = async ({ params }) => {
     console.log(error)
     if (error?.error == 'Not found') {
       return {
-        notFound: true
+        notFound: true, revalidate: 10
       }
     }
     throw error

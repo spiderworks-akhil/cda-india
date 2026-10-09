@@ -140,7 +140,7 @@ const ContactList = ({ data }) => {
     <section className="contact_list_sec pt-[50px] pb-[50px]">
       <div className="container">
         <div className={`grid ${columns} gap-[25px]`}>
-          {offices.map((office, index) => (
+          {offices?.map((office, index) => (
             <ContactCard key={index} office={office} index={index} />
           ))}
         </div>

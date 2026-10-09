@@ -4985,6 +4985,19 @@ section#TermsCondition-section {
 }
 
 
+.career_popup .react-tel-input .country-list .search-box {
+  border: 1px solid #cacaca;
+  border-radius: 3px;
+  outline: none;
+  margin-left: 6px;
+  padding: 3px 8px 5px;
+  font-size: 15px;
+  line-height: 15px;
+  height: 35px;
+  width: 95% !important;
+  color: black;
+}
+
 
 
 .react-tel-input .country-list .search-emoji {

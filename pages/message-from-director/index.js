@@ -48,7 +48,7 @@ export async function getStaticProps() {
     console.log(error);
 
     return {
-      notFound: true
+      notFound: true, revalidate: 10
     }
   }
 
