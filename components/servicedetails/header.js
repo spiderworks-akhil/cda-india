@@ -34,8 +34,8 @@ const SerDetHead = ({ data }) => {
         <div className='absolute top-0 left-0 w-full h-full z-[2] flex items-end pb-[60px]'>
           <div className='container relative z-[1]'>
             <div className='grid md:grid-cols-2 gap-[15px]'>
-              <div className="fade-up-anim"
-                className='md:flex justify-center items-center'
+              <div
+                className='fade-up-anim md:flex justify-center items-center'
               >
                 <div>
                   <h1> {data?.content?.title_1} </h1>
@@ -44,9 +44,9 @@ const SerDetHead = ({ data }) => {
                   <div className='p'>{HTMLParser(data?.content?.description_1)}</div>
 
                   {data?.content?.button_text_1 && (
-                    <button type="button" className="btn-reset" onClick={() => setPopupOpen(true)}>
+                    <div type="button" className="btn-reset" onClick={() => setPopupOpen(true)}>
                       <WhiteBtn btn2text={data?.content?.button_text_1} />
-                    </button>
+                    </div>
                   )}
 
                 </div>
