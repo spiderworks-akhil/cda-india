@@ -48,7 +48,7 @@ const SerOffer = ({ IsServiceDetails, shorttitle, title, discription, listdata }
                   <div className='w-full md:w-auto flex items-center gap-[18px] md:gap-[20px] lg:gap-[40px]'>
                     <span className='item-index'>{index + 1}</span>
                     <Image
-                      src={service?.featured_image?.file_path}
+                      src={service?.banner_image?.file_path || service?.featured_image?.file_path}
                       alt={service?.featured_image?.alt_text || service?.name || service?.title || `Service ${index + 1}`}
                       width={338} height={222}
                       sizes='338px'

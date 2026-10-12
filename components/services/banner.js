@@ -20,8 +20,9 @@ const SerBanner = ({ subtitle, title, discription, bnrimg, bnrimgalt }) => {
         />
         <div className='container relative z-[1]'>
           <div className='grid md:grid-cols-2 gap-[15px]'>
-            <div className="fade-up-anim"
-              className='md:flex justify-center items-center'>
+            <div
+
+              className='fade-up-anim md:flex justify-center items-center'>
               <div>
                 <h5 className='flex items-center gap-[10px]'>
                   <Bluecircleicon />  {subtitle}
